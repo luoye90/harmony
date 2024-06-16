@@ -1,0 +1,48 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.huawei.ohos.app'
+
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\jing\\.ohos\\config\\auto_debug_NetInfo_ohos.samples.netinfo_260086000065960033.p12')
+            storePassword '0000001B4416006F886FF63E81BD7861AB4C8705182EC617FF07B13A7A29DC4D47F9D886D89D9DC9E941F5'
+            keyAlias = 'debugKey'
+            keyPassword '0000001B30015D091E304A46F5F98377ADD6571E3E5ED9E49A3AAF892031BAC5E515C51F72D06C2BC6D77D'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\jing\\.ohos\\config\\auto_debug_NetInfo_ohos.samples.netinfo_260086000065960033.p7b')
+            certpath file('C:\\Users\\jing\\.ohos\\config\\auto_debug_NetInfo_ohos.samples.netinfo_260086000065960033.cer')
+        }
+    }
+    compileSdkVersion 6
+    defaultConfig {
+        compatibleSdkVersion 6
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.huawei.ohos:hap:3.1.5.0'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        jcenter()
+    }
+}
+

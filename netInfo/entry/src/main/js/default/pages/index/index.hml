@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="main-content">
+        <canvas ref="chart" style="width: 600px; height: 600px; margin: 0; padding: 0;"></canvas>
+        <list class="chart-text">
+            <list-item>
+                <text class="font-weight">网速</text>
+            </list-item>
+            <list-item>
+                <text class="font-80 font-weight">
+                    {{ formatNetData('bandWidth').value }}
+                </text>
+            </list-item>
+            <list-item>
+                <text class="font-weight">
+                    {{ formatNetData('bandWidth').unit }}
+                </text>
+            </list-item>
+        </list>
+        <list class="list-content">
+            <list-item>
+                <div>
+                    <text class="label font-30">下载: </text>
+                    <text class="font-60 font-weight value">{{ formatNetData('downSpeed').value }}</text>
+                    <text class="font-40 unit">{{ formatNetData('downSpeed').unit }}</text>
+                </div>
+                <div>
+                    <text class="label font-30">上传: </text>
+                    <text class="font-60 font-weight value">{{ formatNetData('upSpeed').value }}</text>
+                    <text class="font-40 unit">{{ formatNetData('upSpeed').unit }}</text>
+                </div>
+            </list-item>
+            <list-item>
+                <div>
+                    <text class="label font-30">已用流量: </text>
+                    <text class="font-60 font-weight value">{{ formatTrafficInfo(trafficInfo.dataAmount)[0] }}</text>
+                    <text class="font-40 value-second">{{ formatTrafficInfo(trafficInfo.dataAmount)[1] }}</text>
+                    <text class="font-40 unit">G</text>
+                </div>
+                <div>
+                    <text class="label font-30">剩余流量: </text>
+                    <text class="font-60 font-weight value">{{ formatTrafficInfo(trafficInfo.remain)[0] }}</text>
+                    <text class="font-40 value-second">{{ formatTrafficInfo(trafficInfo.remain)[1] }}</text>
+                    <text class="font-40 unit">G</text>
+                </div>
+            </list-item>
+            <list-item>
+                <div>
+                    <text class="label font-30">信号强度: </text>
+                    <text class="font-60 font-weight value">{{ signalInfo.level }}</text>
+                    <text class="font-40 unit">%</text>
+                    <text class="font-40 value-second">（{{ signalInfo.dbm }}dBm）</text>
+                </div>
+            </list-item>
+            <list-item>
+                <progress class="{{ signalInfo.class }}" type="horizontal" percent="{{ signalInfo.level }}}">
+                </progress>
+            </list-item>
+            <list-item style="margin-top: 75%;">
+                <div>
+                    <text class="label-mini">屏幕亮度:</text>
+                    <slider value="{{ screenInfo.brightness }}" showtips="true" min="0" max="100" style="width: 30%;"
+                            @change="brightnessChange">
+                    </slider>
+                </div>
+                <div>
+                    <text class="label-mini">屏幕常亮:</text>
+                    <switch checked="{{ screenInfo.keepScreenOn }}" showtext="true" @change="keepScreenChange"></switch>
+                </div>
+            </list-item>
+            <list-item>
+                <div class="button-controller">
+                    <button class="btn" onclick="getValidInfo" waiting="{{ isLoading }}" value="{{ $t('校正流量') }}">
+                    </button>
+                </div>
+            </list-item>
+        </list>
+    </div>
+</div>

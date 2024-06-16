@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="ohos.samples.netinfo" android:versionCode="2000000" android:versionName="2.0">
+    
+  <uses-feature android:name="zidane.software.ability" android:required="false"/>
+    
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="29"/>
+    
+  <uses-permission android:name="ohos.permission.INTERNET"/>
+    
+  <uses-permission android:name="ohos.permission.GET_WIFI_INFO"/>
+    
+  <uses-permission android:name="ohos.permission.GET_NETWORK_INFO"/>
+    
+  <uses-permission android:name="NA"/>
+    
+  <application android:usesCleartextTraffic="true" android:icon="@drawable/icon" android:directBootAware="false" android:allowBackup="false" android:label="@string/app_name" android:name="ohos.samples.netinfo.ShellMainAbility" android:persistent="false">
+        
+    <meta-data android:value="true" android:name="permZA"/>
+        
+    <activity android:icon="@drawable/icon" android:windowSoftInputMode="adjustResize" android:label="@string/app_name" android:name="ohos.samples.netinfo.MainAbilityShellActivity" android:launchMode="standard" android:exported="true">
+            
+      <meta-data android:value="androidhwext:style/Theme.Emui.Wallpaper.NoTitleBar.Fullscreen" android:name="hwc-theme"/>
+            
+      <intent-filter>
+                
+        <action android:name="android.intent.action.MAIN"/>
+                
+        <category android:name="android.intent.category.LAUNCHER"/>
+              
+      </intent-filter>
+          
+    </activity>
+        
+    <meta-data android:value="androidhwext:style/Theme.Emui.Dark.NoActionBar" android:name="hwc-theme"/>
+      
+  </application>
+  
+</manifest>

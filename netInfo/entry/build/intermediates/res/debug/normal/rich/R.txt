@@ -1,0 +1,7 @@
+media icon 0x1000002
+media icon1 0x1000003
+media icon2 0x1000004
+media icon3 0x1000005
+media icon4 0x1000006
+string app_name 0x1000000
+string mainability_description 0x1000001
